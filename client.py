@@ -26,12 +26,6 @@ def recive_msg():
                     top.title(f'Chat {nickname_display}')
                 except:
                     break
-            elif "QUIT" in msg_str:
-                try:
-                    print(msg_str)
-                except:
-                    print('error')
-                    break
             else:
                 try:
                     msg_list.insert(tk.END, msg_str)
@@ -54,11 +48,7 @@ def write_msg(event=None):
         my_msg.set(" ")
         if msg != " " and msg != "QUIT":
             client_socket.send(bytes(msg, "utf-8"))
-        elif msg == "QUIT":
-            client_socket.send(bytes(msg, "utf-8"))
-            print('des')
-            sys.exit()
-            top.destroy()
+     
         
 
 def on_closing(event=None):
@@ -77,6 +67,7 @@ scrollbar = tk.Scrollbar(message_frame)
 msg_list = tk.Listbox(message_frame, height=15, width=50, yscrollcommand=scrollbar.set)
 
 scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+scrollbar.config(command=msg_list.yview)
 msg_list.pack(side=tk.LEFT, fill=tk.BOTH)
 msg_list.pack()
 message_frame.pack()

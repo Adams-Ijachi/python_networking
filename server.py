@@ -56,7 +56,6 @@ def handle_msg(client):
                 broadcast(msg)
     
         except:
-            
             index = client_list.index(client)
             client_list.remove(client)
             nickname = client_nicknames[index]
