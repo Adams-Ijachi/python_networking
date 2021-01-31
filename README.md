@@ -1,5 +1,5 @@
 # Python Sockets Chat app with Tkinter gui
-1.authenticates the username 
-2.has private messaging feature 
+1. Authenticates the username 
+2. Private messaging feature 
 
 Hope it helps!! 
